@@ -9,7 +9,7 @@ try {
   const { default: Skeleton } = await server.ssrLoadModule('/src/LoginSkeleton.jsx')
   const html = renderToStaticMarkup(createElement(App))
   assert.match(html, /aria-label="Mostrar contraseña"/)
-  assert.match(html, /Modo claro/)
+  assert.match(html, /aria-label="Activar modo claro"/)
   assert.match(html, /2026–2027 CP. Todos los derechos reservados/)
   assert.match(html, /minLength="8"/)
   assert.match(renderToStaticMarkup(createElement(Skeleton)), /aria-busy="true"/)
