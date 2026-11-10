@@ -1,18 +1,18 @@
 :root {
   font-family: 'Segoe UI', Arial, sans-serif;
-  color: #17243b;
-  background: #f1f4f8;
+  color: #eeeeee;
+  background: #111111;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: light;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 280px; }
 button, input { font: inherit; }
 button { cursor: pointer; }
 button:focus-visible, a:focus-visible, input:focus-visible {
-  outline: 3px solid #1f5bd7;
+  outline: 3px solid #b8c9d5;
   outline-offset: 3px;
 }
