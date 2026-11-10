@@ -1,0 +1,34 @@
+# Dependencias y compilaciones
+node_modules/
+dist/
+dist-ssr/
+coverage/
+
+# Credenciales y configuración local
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Evidencias y cachés locales
+.taste-skill/
+.vite/
+.cache/
+logs/
+*.log
+*.tsbuildinfo
+
+# Editor y sistema operativo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
