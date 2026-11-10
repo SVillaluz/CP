@@ -2,7 +2,7 @@
   min-height: 100svh; display: flex; flex-direction: column;
   align-items: center; padding: 36px 24px 24px;
 }
-.brand { align-self: flex-start; color: #17243b; font-size: 22px; font-weight: 750; text-decoration: none; }
+.brand { align-self: center; color: #17243b; font-size: 22px; font-weight: 750; text-decoration: none; }
 .brand span { color: #56647b; font-size: 14px; font-weight: 400; margin-left: 12px; }
 .login-card {
   width: 100%; max-width: 440px; margin: auto; padding: 36px;
@@ -12,7 +12,7 @@
 .welcome-mark {
   display: grid; place-items: center; width: 46px; height: 46px;
   border-radius: 12px; background: #eaf0ff; color: #2455bd;
-  font-weight: 750; margin-bottom: 24px;
+  font-weight: 750; margin: 0 auto 24px;
 }
 h1 { font-size: 27px; line-height: 1.2; letter-spacing: -0.8px; margin: 0 0 10px; }
 .intro { color: #56647b; font-size: 15px; margin: 0 0 30px; }
@@ -36,11 +36,6 @@ input::placeholder { color: #66748a; }
   background: #2455bd; color: #fff; font-weight: 600;
 }
 .submit:hover { background: #1c4396; }
-.feedback { color: #23523c; font-size: 14px; line-height: 1.5; margin: 0; }
-.feedback:not(:empty) { margin-top: 16px; }
-.demo-note { border-top: 1px solid #e1e6ef; margin-top: 28px; padding-top: 20px; color: #56647b; font-size: 12px; line-height: 1.6; }
-.demo-note strong { color: #384963; font-weight: 600; }
-.demo-note p { margin: 4px 0 0; }
 footer { color: #56647b; font-size: 12px; padding-top: 28px; }
 @media (max-width: 520px) {
   .login-page { padding: 24px 16px; gap: 32px; }
