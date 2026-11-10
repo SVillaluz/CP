@@ -1,64 +1,51 @@
-import { useEffect, useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [mensaje, setMensaje] = useState('Cargando mensaje...')
+  const [visible, setVisible] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
-  useEffect(() => {
-    fetch('/api/saludo')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('No se pudo obtener el mensaje')
-        }
-        return response.json()
-      })
-      .then((data) => setMensaje(data.message))
-      .catch((error) => setMensaje(error.message))
-  }, [])
+  function handleSubmit(event) {
+    event.preventDefault()
+    event.currentTarget.reset()
+    setVisible(false)
+    setSubmitted(true)
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>{mensaje}</p>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+    <main className="login-page">
+      <a className="brand" href="/" aria-label="CP, inicio">CP<span> / Tu espacio</span></a>
+      <section className="login-card" aria-labelledby="login-title">
+        <div className="welcome-mark" aria-hidden="true">CP</div>
+        <h1 id="login-title">Bienvenido de nuevo</h1>
+        <p className="intro">Ingresa tus datos para continuar.</p>
+        <form onSubmit={handleSubmit} onChange={() => setSubmitted(false)}>
+          <label htmlFor="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" autoComplete="username"
+            placeholder="nombre@ejemplo.com" required aria-describedby="demo-note" />
+          <label htmlFor="password">Contraseña</label>
+          <div className="password-field">
+            <input id="password" name="password" type={visible ? 'text' : 'password'}
+              autoComplete="current-password" placeholder="Ingresa tu contraseña"
+              minLength={8} required aria-describedby="password-hint demo-note" />
+            <button className="visibility" type="button" aria-controls="password"
+              aria-pressed={visible} onClick={() => setVisible(!visible)}>
+              {visible ? 'Ocultar' : 'Mostrar'}
+            </button>
+          </div>
+          <p className="field-hint" id="password-hint">Usa al menos 8 caracteres.</p>
+          <button className="submit" type="submit">Iniciar sesión</button>
+          <p className="feedback" role="status">
+            {submitted ? 'Formulario validado. Esta demostración no inicia una sesión real.' : ''}
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+        </form>
+        <aside className="demo-note" id="demo-note">
+          <strong>Vista de demostración</strong>
+          <p>Usa datos ficticios. No se envían ni guardan tus credenciales.</p>
+        </aside>
       </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <footer>CP · Un espacio para comenzar</footer>
+    </main>
   )
 }
 
