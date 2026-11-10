@@ -1,5 +1,9 @@
 # React + Vite
 
+Inicio de sesión: ejecutar `npm run dev` desde la raíz y abrir
+`http://localhost:5173/iniciodesesion.html`. La entrada HTML se llama
+`iniciodesesion.html`; la compilación conserva ese nombre.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:

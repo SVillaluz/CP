@@ -3,6 +3,7 @@ import './App.css'
 
 function App() {
   const [visible, setVisible] = useState(false)
+  const [light, setLight] = useState(false)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -11,8 +12,12 @@ function App() {
   }
 
   return (
-    <main className="login-page">
-      <a className="brand" href="/" aria-label="CP, inicio">CP<span> / Tu espacio</span></a>
+    <main className="login-page" data-theme={light ? 'light' : 'dark'}>
+      <header className="login-header">
+        <a className="brand" href="/iniciodesesion.html" aria-label="CP, inicio">CP<span> / Tu espacio</span></a>
+        <button className="theme-toggle" type="button" aria-pressed={light}
+          onClick={() => setLight(!light)}>{light ? 'Modo oscuro' : 'Modo claro'}</button>
+      </header>
       <section className="login-card" aria-labelledby="login-title">
         <div className="welcome-mark" aria-hidden="true">CP</div>
         <h1 id="login-title">Bienvenido de nuevo</h1>
@@ -27,15 +32,21 @@ function App() {
               autoComplete="current-password" placeholder="Ingresa tu contraseña"
               minLength={8} required aria-describedby="password-hint" />
             <button className="visibility" type="button" aria-controls="password"
+              aria-label={visible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
               aria-pressed={visible} onClick={() => setVisible(!visible)}>
-              {visible ? 'Ocultar' : 'Mostrar'}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+                <circle cx="12" cy="12" r="3" />
+                {visible && <path d="m3 3 18 18" />}
+              </svg>
             </button>
           </div>
           <p className="field-hint" id="password-hint">Usa al menos 8 caracteres.</p>
           <button className="submit" type="submit">Iniciar sesión</button>
         </form>
       </section>
-      <footer>CP · Un espacio para comenzar</footer>
+      <footer>© 2026–2027 CP. Todos los derechos reservados.</footer>
     </main>
   )
 }
